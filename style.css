@@ -61,3 +61,6 @@
 
 .element[data-phase="gas"] .title{color:#dc3545 !important}
 .element[data-phase="liquid"] .title{color:#007bff !important}
+
+.element.radioactive .card::after{content:" ";position:absolute;top:0;left:0;bottom:0;right:0;z-index:0;background-image:url(radioactive.svg);background-position: center center;background-size:50%;background-repeat:no-repeat;opacity:0.15}
+.element.radioactive .number{color:#ffc107 !important}

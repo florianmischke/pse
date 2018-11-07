@@ -19,6 +19,7 @@ jQuery(function($) {
       element.find('.subtitle').html(value.name)
       element.find('.mass').html(value.atomic_mass)
       element.find('.shells').html(value.shells.join('/'))
+      if(value.summary.indexOf('radioactive') != -1) element.addClass('radioactive')
       description = '<p>'+value.summary+'</p>'
       description += '<a href="'+value.source+'" target="_blank"><i class="fas fa-external-link-alt"></i> Source</a>'
       table = $('<table class="table table-striped table-sm"/>')
