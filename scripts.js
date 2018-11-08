@@ -17,8 +17,8 @@ jQuery(function($) {
       element.find('.title').html(value.symbol)
       element.find('.number').html(value.number)
       element.find('.subtitle').html(value.name)
-      element.find('.mass').html(value.atomic_mass)
-      element.find('.shells').html(value.shells.join('/'))
+      element.find('.mass').html('<i class="fas fa-weight-hanging"></i> '+value.atomic_mass.toFixed(3))
+      element.find('.shells').html('<i class="fas fa-atom"></i> '+value.shells.join('/'))
       if(value.summary.indexOf('radioactive') != -1) element.addClass('radioactive')
       description = '<p>'+value.summary+'</p>'
       description += '<a href="'+value.source+'" target="_blank"><i class="fas fa-external-link-alt"></i> Source</a>'
