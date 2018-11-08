@@ -56,12 +56,14 @@
           </div>
         </li> -->
       </ul>
-      <select class="selectpicker mx-2" data-width="fit">
-        <option data-content='<span class="flag-icon flag-icon-gb"></span> English'>English</option>
-        <option data-content='<span class="flag-icon flag-icon-us"></span> English'>English</option>
-        <option data-content='<span class="flag-icon flag-icon-mx"></span> Español'>Español</option>
-        <option data-content='<span class="flag-icon flag-icon-de"></span> Deutsch'>Deutsch</option>
-      </select>
+      <form action="">
+        <select id="language" name="language" class="selectpicker mx-2" data-width="fit">
+          <option data-content='<span class="flag-icon flag-icon-gb"></span> English' value="en_uk" data="en_uk">English</option>
+          <!-- <option data-content='<span class="flag-icon flag-icon-us"></span> English' value="en_us" data="en_us">English</option> -->
+          <!-- <option data-content='<span class="flag-icon flag-icon-mx"></span> Español' value="es_es" data="es_es">Español</option> -->
+          <option data-content='<span class="flag-icon flag-icon-de"></span> Deutsch' value="de_de" data="de_de">Deutsch</option>
+        </select>
+      </form>
       <form class="form-inline my-2">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search">
       </form>

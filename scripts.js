@@ -1,10 +1,21 @@
 jQuery(function($) {
-  $(function(){
-    $('.selectpicker').selectpicker();
-  });
+  window.language = false
+  $('.selectpicker').selectpicker();
+  $('#language').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
+    language = $(this).children().eq(clickedIndex).val()
+    $(this).closest('form').submit()
+  })
+  function getLanguage(languageIdent) {
+    jQuery.getJSON(languageIdent+".json", function(language) {
+    console.log(language)
+      return language
+    })
+  }
+  window.language = getLanguage('de_de')
+
   var elementTemplate = $('a.element')
-  jQuery.getJSON("elements.json", function(json) {
-    // console.log(json); // this will show the info it in firebug console
+  jQuery.getJSON("elements.json", function(elements) {
+    var json = $.extend(true, {}, elements, window.language);
     $.each(json.elements, function(key, value) {
       element = elementTemplate.clone()
       element.attr('id','element-'+value.symbol.toLowerCase())
@@ -53,5 +64,5 @@ jQuery(function($) {
   })
   $('#pse').liveFilter('#search', '.card', {
     filterChildSelector: 'h6'
-  });
+  })
 })
