@@ -64,8 +64,13 @@
           <option data-content='<span class="flag-icon flag-icon-de"></span> Deutsch' value="de_de" data="de_de">Deutsch</option>
         </select>
       </form>
-      <form class="form-inline my-2">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search">
+      <form id="search-form" class="form search-form my-2">
+        <div class="input-group">
+          <input type="text" class="form-control search-param" id="s" name="s" placeholder="Search">
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-secondary"><i class="fas fa-search"></i></button>
+          </div>
+        </div>
       </form>
     </div>
   </nav>

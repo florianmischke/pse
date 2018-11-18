@@ -121,5 +121,44 @@ jQuery(function($) {
   }
   setAppLanguage(window.language)
 
-
+  $('#s').focus(function() {
+    form = $(this).closest('form')
+    parent = form.parent()
+    offset = form.offset()
+    width = form.width()
+    clone = form.clone()
+    form.attr({
+      'offset-top':offset.top,
+      'offset-left':offset.left,
+    })
+    form.addClass('o-0')
+    backdrop = $('<div class="modal-backdrop fade"/>')
+    backdrop.appendTo('body')
+    clone.attr('id','search-form-clone').css({
+      position: 'fixed',
+      top: offset.top,
+      left: offset.left,
+      width: width,
+      'z-index': '1100'
+    }).appendTo(parent)
+    clone.animate({
+      top:'25%',
+      left:'10%',
+      width:'80vw'
+    },500)
+    backdrop.addClass('show')
+    clone.find('.search-param').focus()
+  })
+  $(document).on('blur', '#search-form-clone .search-param', function() {
+    backdrop.removeClass('show')
+    clone.animate({
+      top: offset.top,
+      left: offset.left,
+      width: width
+    },500, function() {
+      form.removeClass('o-0')
+      clone.remove()
+      backdrop.remove()
+    })
+  })
 })
