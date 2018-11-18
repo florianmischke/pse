@@ -74,6 +74,8 @@
 .element.radioactive .card::after{content:" ";position:absolute;top:0;left:0;bottom:0;right:0;z-index:0;background-image:url(radioactive.svg);background-position: center center;background-size:50%;background-repeat:no-repeat;opacity:0.15}
 .element.radioactive .number{color:#ffc107 !important}
 
+.big-arrow{font-size:8rem;height:100%;position:absolute;bottom:0;left:50%;transform:translateX(-50%);}
+
 #page-footer{color:#6c757d;background:#1e2022}
 #page-footer *{border-color:#6c757d!important}
 footer .social-media a{display:inline-block;width:100%;min-height:12.5vw;line-height:12.5vw;font-size:5vw;text-align:center}
