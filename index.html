@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.css" integrity="sha256-9MbYWPlETRYDxprjQWUUAkiU6JtQaY1EustxQWdQwhk=" crossorigin="anonymous" />
   <link rel="stylesheet" href="style.css">
 
-  <title>PSE</title>
+  <title>Periodic table of elements</title>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-success">
@@ -58,8 +58,8 @@
       </ul>
       <form action="">
         <select id="language" name="language" class="selectpicker mx-2" data-width="fit">
-          <option data-content='<span class="flag-icon flag-icon-gb"></span> English' value="en_uk" data="en_uk">English</option>
-          <!-- <option data-content='<span class="flag-icon flag-icon-us"></span> English' value="en_us" data="en_us">English</option> -->
+          <option data-content='<span class="flag-icon flag-icon-gb"></span> English (UK)' value="en_gb" data="en_gb">English (UK)</option>
+          <option data-content='<span class="flag-icon flag-icon-us"></span> English (US)' value="en_us" data="en_us">English (US)</option>
           <!-- <option data-content='<span class="flag-icon flag-icon-mx"></span> Español' value="es_es" data="es_es">Español</option> -->
           <option data-content='<span class="flag-icon flag-icon-de"></span> Deutsch' value="de_de" data="de_de">Deutsch</option>
         </select>
@@ -71,18 +71,18 @@
   </nav>
   <div class="container-fluid">
     <div class="grid mt-3" id="legend">
-      <div class="grid-item"><p class="h1">I</p> <p class="h5">Alkali</p> <p class="h2">1</p> </div>
-      <div class="grid-item"><p class="h1">II</p> <p class="h5">Alkaline</p> <p class="h2">2</p> </div>
-      <div class="grid-item transition"><p class="h1">&nbsp;</p> <p class="h5">Transition metals</p> <p class="h2">3 - 12</p> </div>
-      <div class="grid-item"><p class="h1">III</p> <p class="h5">Boron</p> <p class="h2">13</p> </div>
-      <div class="grid-item"><p class="h1">IV</p> <p class="h5">Carbon</p> <p class="h2">14</p> </div>
-      <div class="grid-item"><p class="h1">V</p> <p class="h5">Pnictogen</p> <p class="h2">15</p> </div>
-      <div class="grid-item"><p class="h1">VI</p> <p class="h5">Chalcogen</p> <p class="h2">16</p> </div>
-      <div class="grid-item"><p class="h1">VII</p> <p class="h5">Halogen</p> <p class="h2">17</p> </div>
-      <div class="grid-item"><p class="h1">VIII</p> <p class="h5">Noble</p> <p class="h2">18</p> </div>
+      <div class="grid-item"><p class="h1">I</p> <p class="h5 name">Alkali</p> <p class="h2">1</p> </div>
+      <div class="grid-item"><p class="h1">II</p> <p class="h5 name">Alkaline</p> <p class="h2">2</p> </div>
+      <div class="grid-item transition"><p class="h1">&nbsp;</p> <p class="h5 name">Transition metals</p> <p class="h2">3 - 12</p> </div>
+      <div class="grid-item"><p class="h1">III</p> <p class="h5 name">Boron</p> <p class="h2">13</p> </div>
+      <div class="grid-item"><p class="h1">IV</p> <p class="h5 name">Carbon</p> <p class="h2">14</p> </div>
+      <div class="grid-item"><p class="h1">V</p> <p class="h5 name">Pnictogen</p> <p class="h2">15</p> </div>
+      <div class="grid-item"><p class="h1">VI</p> <p class="h5 name">Chalcogen</p> <p class="h2">16</p> </div>
+      <div class="grid-item"><p class="h1">VII</p> <p class="h5 name">Halogen</p> <p class="h2">17</p> </div>
+      <div class="grid-item"><p class="h1">VIII</p> <p class="h5 name">Noble</p> <p class="h2">18</p> </div>
     </div>
     <div class="grid mt-3" id="pse">
-      <a href="#element-la" class="grid-item element" id="" style="grid-column-start: 3; grid-row-start: 6;">
+      <a href="#element-la" class="grid-item element nav-item" id="" style="grid-column-start: 3; grid-row-start: 6;">
         <div class="card h-100">
           <div class="card-body">
             <h4 class="card-title">
@@ -92,7 +92,7 @@
           </div>
         </div>
       </a>
-        <a href="#element-ac" class="grid-item element" id="" style="grid-column-start: 3; grid-row-start: 7;">
+        <a href="#element-ac" class="grid-item element nav-item" id="" style="grid-column-start: 3; grid-row-start: 7;">
           <div class="card h-100">
             <div class="card-body">
               <h4 class="card-title">

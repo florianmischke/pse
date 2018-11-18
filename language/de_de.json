@@ -1,4 +1,39 @@
 {
+  "title": "Periodensystem der Elemente",
+  "groups": [
+    {
+      "name": "Alkali&shy;metalle",
+      "alt": "und Wasserstoff"
+    },
+    {
+      "name": "Erdalkali&shy;metalle"
+    },
+    {
+      "name": "Übergangs&shy;metalle"
+    },
+    {
+      "name": "Erd&shy;metalle",
+      "alt": "auch: Borgruppe"
+    },
+    {
+      "name": "Tetrele",
+      "alt": "auch: Kohlenstoffgruppe oder Kohlenstoff-Silicium-Gruppe"
+    },
+    {
+      "name": "Pnicto&shy;gene",
+      "alt": "auch: Stickstoffgruppe oder Stickstoff-Phosphor-Gruppe"
+    },
+    {
+      "name": "Chalko&shy;gene",
+      "alt": "auch: Sauerstoff-Gruppe"
+    },
+    {
+      "name": "Halo&shy;gene"
+    },
+    {
+      "name": "Edel&shy;gase"
+    }
+  ],
   "elements": [
     {
       "name": "Wasserstoff"
@@ -356,6 +391,14 @@
     },
     {
       "name": "Ununennium"
+    }
+  ],
+  "navItems": [
+    {
+      "name": "Lanthanoide"
+    },
+    {
+      "name": "Actinoide"
     }
   ]
 }

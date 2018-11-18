@@ -1,3 +1,6 @@
+.text-underline-dotted{text-decoration:underline;text-decoration-style:dotted}
+.text-underline-dashed{text-decoration:underline;text-decoration-style:dashed}
+
 .grid{
   display:grid;
   grid-template-columns: repeat( 18, minmax(75px, 1fr) );

@@ -1,24 +1,12 @@
 jQuery(function($) {
-  window.language = false
-  $('.selectpicker').selectpicker();
-  $('#language').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
-    language = $(this).children().eq(clickedIndex).val()
-    $(this).closest('form').submit()
-  })
-  function getLanguage(languageIdent) {
-    jQuery.getJSON(languageIdent+".json", function(language) {
-    console.log(language)
-      return language
-    })
-  }
-  window.language = getLanguage('de_de')
-
-  var elementTemplate = $('a.element')
+  var elementTemplate = $('a.element').last()
   jQuery.getJSON("elements.json", function(elements) {
-    var json = $.extend(true, {}, elements, window.language);
+    // var json = $.extend(true, {}, elements, window.language);
+    var json = elements
     $.each(json.elements, function(key, value) {
       element = elementTemplate.clone()
       element.attr('id','element-'+value.symbol.toLowerCase())
+      element.attr('data-i',value.number)
       element.addClass(value.category)
       element.css({
         "grid-column-start": ""+value.xpos,
@@ -62,7 +50,76 @@ jQuery(function($) {
     modal.find('.modal-title').html(name)
     modal.find('.modal-body').html(description)
   })
-  $('#pse').liveFilter('#search', '.card', {
-    filterChildSelector: 'h6'
+
+  function getUrlVars() {
+      var vars = [], hash;
+      var hashes = window.location.href.split('#')[0].slice(window.location.href.indexOf('?') + 1).split('&');
+      for(var i = 0; i < hashes.length; i++)
+      {
+          hash = hashes[i].split('=');
+          vars.push(hash[0]);
+          vars[hash[0]] = hash[1];
+      }
+      return vars;
+  }
+  var langFromQueryString = getUrlVars()["language"]
+
+  var userLanguage = navigator.language || navigator.userLanguage,
+    supportedLanguagues = ['de_de', 'en_gb', 'en_us'];
+  var languageMap = {
+    "de": "de_de",
+    "en": "en_gb"
+  }
+
+  if(typeof langFromQueryString !== 'undefined' && supportedLanguagues.indexOf(langFromQueryString) != -1) {
+    window.language = langFromQueryString;
+    console.log('Language set via query string')
+  } else if(typeof userLanguage !== 'undefined' && supportedLanguagues.indexOf(userLanguage) != -1) {
+    window.language = userLanguage
+    console.log('Language set via browser settings')
+  } else if(typeof userLanguage !== 'undefined' && supportedLanguagues.indexOf(languageMap[userLanguage]) != -1) {
+    window.language = languageMap[userLanguage]
+    console.log('Language set via languageMap and browser settings')
+  } else {
+    window.language = 'en_gb'
+    console.log('Language set by app default')
+  }
+
+  $('.selectpicker').selectpicker('val', window.language);
+
+  $('#language').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
+    language = $(this).children().eq(clickedIndex).val()
+    $(this).closest('form').submit()
   })
+
+  function setAppLanguage(languageIdent, callback = function() {}) {
+    jQuery.getJSON('language/'+languageIdent+".json", function(language) {
+      $('title').text(language.title)
+      $('a.navbar-brand').html(language.title)
+      $('#legend').children().each(function(key, value) {
+        var self = $(this).find('.name')
+        self.html(language.groups[key].name)
+        if(typeof language.groups[key].alt !== 'undefined') {
+          self.attr({
+            'data-toggle': 'tooltip',
+            'data-placement': 'top',
+            title: language.groups[key].alt
+          }).addClass('text-underline-dashed').tooltip()
+        }
+      })
+      $('.element:not(.nav-item)').each(function(key, value) {
+        var i = parseInt($(this).attr('data-i')) - 1
+        if(typeof language.elements[i] !== 'undefined')
+          $(this).find('.subtitle').html(language.elements[i].name)
+      })
+      $('.element.nav-item').each(function(key, value) {
+        console.log(key)
+        $(this).find('.subtitle').html(language.navItems[key].name)
+      })
+      return language
+    })
+  }
+  setAppLanguage(window.language)
+
+
 })
