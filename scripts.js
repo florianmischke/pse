@@ -18,7 +18,7 @@ jQuery(function($) {
       element.find('.subtitle').html(value.name)
       element.find('.mass').html('<i class="fas fa-weight-hanging"></i> '+value.atomic_mass.toFixed(3))
       element.find('.shells').html('<i class="fas fa-atom"></i> '+value.shells.join('/'))
-      if(value.summary.indexOf('radioactive') != -1) element.addClass('radioactive')
+      if(value.summary.indexOf('radioactive') != -1 || parseInt(value.number) >= 83) element.addClass('radioactive')
       description = '<p>'+value.summary+'</p>'
       description += '<a href="'+value.source+'" target="_blank"><i class="fas fa-external-link-alt"></i> Source</a>'
       table = $('<table class="table table-striped table-sm"/>')
@@ -107,12 +107,12 @@ jQuery(function($) {
           }).addClass('text-underline-dashed').tooltip()
         }
       })
-      $('.element:not(.nav-item)').each(function(key, value) {
+      $('a.element:not(.nav-item)').each(function(key, value) {
         var i = parseInt($(this).attr('data-i')) - 1
         if(typeof language.elements[i] !== 'undefined')
           $(this).find('.subtitle').html(language.elements[i].name)
       })
-      $('.element.nav-item').each(function(key, value) {
+      $('a.element.nav-item').each(function(key, value) {
         console.log(key)
         $(this).find('.subtitle').html(language.navItems[key].name)
       })
@@ -139,7 +139,7 @@ jQuery(function($) {
       top: offset.top,
       left: offset.left,
       width: width,
-      'z-index': '1100'
+      'z-index': '1200'
     }).appendTo(parent)
     clone.animate({
       top:'25%',
@@ -160,5 +160,11 @@ jQuery(function($) {
       clone.remove()
       backdrop.remove()
     })
+  })
+
+  $('[data-toggle="tooltip"]').tooltip()
+
+  $('#themeSwitch').find('input').change(function() {
+    $('body').toggleClass('dark-theme')
   })
 })

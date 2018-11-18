@@ -32,8 +32,8 @@
 
   <title>Periodic table of elements</title>
 </head>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+<body class="dark-theme">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
     <a class="navbar-brand" href="#">Periodic table of elements</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -56,6 +56,27 @@
           </div>
         </li> -->
       </ul>
+
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-wrench"></i> Settings
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <div class="dropdown-item" href="#">
+            <!-- Switch -->
+            <div id="themeSwitch" class="switch">
+              <label>
+                Dark theme
+                <input type="checkbox">
+                <span class="lever"></span>
+                light theme
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
       <form action="">
         <select id="language" name="language" class="selectpicker mx-2" data-width="fit">
           <option data-content='<span class="flag-icon flag-icon-gb"></span> English (UK)' value="en_gb" data="en_gb">English (UK)</option>
@@ -68,13 +89,24 @@
         <div class="input-group">
           <input type="text" class="form-control search-param" id="s" name="s" placeholder="Search">
           <div class="input-group-append">
-            <button type="submit" class="btn btn-secondary"><i class="fas fa-search"></i></button>
+            <button type="submit" class="btn btn-success"><i class="fas fa-search"></i></button>
           </div>
         </div>
       </form>
     </div>
   </nav>
   <div class="container-fluid">
+
+    <div class="row mt-3 justify-content-md-center">
+      <div class="col-md-auto">
+        <div class="img-thumbnail float-left">
+          <p class="mb-0 text-center text-muted">Ad: <small>(<a href="">why?</a>)</small></p>
+          <img src="https://via.placeholder.com/728x90?text=728x90+Leaderboard" alt="https://placeholder.com/banner-ads/" class="img-fluid">
+          <p class="mb-0 text-center text-muted">C/O https://placeholder.com/banner-ads/</p>
+        </div>
+      </div>
+    </div>
+
     <div class="grid mt-3" id="legend">
       <div class="grid-item"><p class="h1">I</p> <p class="h5 name">Alkali</p> <p class="h2">1</p> </div>
       <div class="grid-item"><p class="h1">II</p> <p class="h5 name">Alkaline</p> <p class="h2">2</p> </div>
@@ -87,40 +119,99 @@
       <div class="grid-item"><p class="h1">VIII</p> <p class="h5 name">Noble</p> <p class="h2">18</p> </div>
     </div>
     <div class="grid mt-3" id="pse">
-      <a href="#element-la" class="grid-item element nav-item" id="" style="grid-column-start: 3; grid-row-start: 6;">
-        <div class="card h-100">
+      <div class="grid-item element nav-item" style="grid-column-start: 4; grid-column-end: 6; grid-row-start: 1; grid-row-end: 3;">
+        <div class="card h-100 bg-secondary text-white">
+          <div class="card-header">
+            <h4 class="card-title">
+              <span class="badge badge-light title">B / <span class="text-danger">N</span> / <span class="text-primary">Br</span><sup> 2</sup></span>
+              <span class="badge number">27 / <span class="text-warning">43</span><sup> 1</sup></span>
+            </h4>
+            <h6 class="card-subtitle mb-2 subtitle text-center">Helium<sup> 3</sup></h6>
+          </div>
           <div class="card-body">
+            <p class="mass"><i class="fas fa-weight-hanging"></i> 10.810<sup> 4</sup></p>
+            <p class="shells"><i class="fas fa-atom"></i> 2/8/18/13/1<sup> 5</sup></p>
+            <p>Click on element to see more info.</p>
+            <p class="en"></p>
+            <div class="d-none">
+              <div class="description"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="grid-item" style="grid-column-start: 6; grid-column-end: 12; grid-row-start: 1; grid-row-end: 3;">
+        <h4 class="text-center">Explanation</h4>
+        <h5 class="text-center">Backgrounds: <span class="badge badge-secondary">metal</span> <span class="badge badge-warning-dark">metalloid</span> <span class="badge badge-info">nonmetal</span> <span class="badge badge-primary">noble gas</span></h5>
+        <ol>
+          <li>Element number, also number of protons<br>colors: <span class="text-warning text-underline-dashed" data-toggle="tooltip" data-placement="top" title="in other words: no stable isotope">radioactive</span></li>
+          <li>Element symbol<br>colors: solid / <span class="text-danger">gaseous</span> / <span class="text-primary">liquid</span> (state at <span class="text-underline-dashed" data-toggle="tooltip" data-placement="top" title="25° C.">room temperature</span>)</li>
+          <li>Element name</li>
+          <li>Atomic mass in u or g/mol</li>
+          <li>Electron configuration, electrons per "shell"</li>
+        </ol>
+      </div>
+      <div class="grid-item text-center" style="grid-column-start: 3; grid-row-start: 3; align-self: end;"><p class="h5 name"></p> <p class="h2">3</p></div>
+      <div class="grid-item text-center" style="grid-column-start: 4; grid-row-start: 3; align-self: end;"><p class="h5 name"></p> <p class="h2">4</p></div>
+      <div class="grid-item text-center" style="grid-column-start: 5; grid-row-start: 3; align-self: end;"><p class="h5 name"></p> <p class="h2">5</p></div>
+      <div class="grid-item text-center" style="grid-column-start: 6; grid-row-start: 3; align-self: end;"><p class="h5 name"></p> <p class="h2">6</p></div>
+      <div class="grid-item text-center" style="grid-column-start: 7; grid-row-start: 3; align-self: end;"><p class="h5 name"></p> <p class="h2">7</p></div>
+      <div class="grid-item text-center" style="grid-column-start: 8; grid-row-start: 3; align-self: end;"><p class="h5 name"></p> <p class="h2">8</p></div>
+      <div class="grid-item text-center" style="grid-column-start: 9; grid-row-start: 3; align-self: end;"><p class="h5 name"></p> <p class="h2">9</p></div>
+      <div class="grid-item text-center" style="grid-column-start: 10; grid-row-start: 3; align-self: end;"><p class="h5 name"></p> <p class="h2">10</p></div>
+      <div class="grid-item text-center" style="grid-column-start: 11; grid-row-start: 3; align-self: end;"><p class="h5 name"></p> <p class="h2">11</p></div>
+      <div class="grid-item text-center" style="grid-column-start: 12; grid-row-start: 3; align-self: end;"><p class="h5 name"></p> <p class="h2">12</p></div>
+      <a href="#element-la" class="grid-item element nav-item" id="" style="grid-column-start: 3; grid-row-start: 6;">
+        <div class="card h-100 bg-dark text-white">
+          <div class="card-header">
             <h4 class="card-title">
               <span class="badge number">57 - 71</span>
             </h4>
-            <h6 class="card-subtitle mt-1 mb-2 subtitle text-center">Lanthanide series</h6>
+            <h6 class="card-subtitle mb-2 subtitle text-center">Lanthanide series</h6>
+          </div>
+          <div class="card-body">
           </div>
         </div>
       </a>
-      <a href="#element-ac" class="grid-item element nav-item" id="" style="grid-column-start: 3; grid-row-start: 7;">
-        <div class="card h-100">
-          <div class="card-body">
+      <a href="#element-ac" class="grid-item element nav-item radioactive" id="" style="grid-column-start: 3; grid-row-start: 7;">
+        <div class="card h-100 bg-dark text-white">
+          <div class="card-header">
             <h4 class="card-title">
               <span class="badge number">89 - 103</span>
             </h4>
-            <h6 class="card-subtitle mt-1 mb-2 subtitle text-center">Actinide series</h6>
+            <h6 class="card-subtitle mb-2 subtitle text-center">Actinide series</h6>
+          </div>
+          <div class="card-body">
           </div>
         </div>
       </a>
       <div class="grid-item nav-item" id="" style="grid-column-start: 3; grid-row-start: 8;">
         <p class="big-arrow text-center"><i class="fas fa-long-arrow-alt-down"></i></p>
       </div>
+    </div> <!-- / .grid#pse -->
+
+    <div class="row justify-content-md-center mt-5">
+      <div class="col-md-auto">
+        <div class="img-thumbnail float-left">
+          <p class="mb-0 text-center text-muted">Ad: <small>(<a href="">why?</a>)</small></p>
+          <img src="https://via.placeholder.com/728x90?text=728x90+Leaderboard" alt="https://placeholder.com/banner-ads/" class="img-fluid">
+          <p class="mb-0 text-center text-muted">C/O https://placeholder.com/banner-ads/</p>
+        </div>
+      </div>
     </div>
-  </div>
+
+  </div> <!-- / .container-fluid -->
+
   <div style="display:none">
     <a href="#" class="grid-item element" id="" data-toggle="modal" data-target="#elementModal">
       <div class="card h-100">
-        <div class="card-body">
+        <div class="card-header">
           <h4 class="card-title">
             <span class="badge badge-light title"></span>
             <span class="badge number"></span>
           </h4>
-          <h6 class="card-subtitle mt-1 mb-3 subtitle text-center"></h6>
+          <h6 class="card-subtitle mb-2 subtitle text-center"></h6>
+        </div>
+        <div class="card-body">
           <p class="mass"></p>
           <p class="shells"></p>
           <p class="en"></p>
@@ -157,7 +248,6 @@
               <li><a href="">Übersicht</a></li>
               <li><a href="">Lexikon</a></li>
               <li><a href="">FAQ</a></li>
-              <li><a href="">Test</a></li>
               <li><a href="">Shop</a></li>
             </ul>
           </div>
@@ -174,7 +264,7 @@
     </div>
     <div class="border-top border-left border-right">
       <div class="container">
-        <a href=""><img src="images/logo.png" class="img-fluid d-block mx-auto py-3 o-50" alt="" width="300px"></a>
+        <a href="" class="o-50 o-h-100"><img src="images/logo.png" class="img-fluid d-block mx-auto py-3" alt="" width="300px"></a>
       </div>
     </div>
     <div class="py-2 border-top border-left border-right">
