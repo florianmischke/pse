@@ -47,6 +47,12 @@
   opacity: 1;
 }
 
+.o-0{opacity:0}
+.o-25{opacity:0.25}
+.o-50{opacity:0.5}
+.o-75{opacity:0.75}
+.o-100{opacity:1}
+
 /* .grid-item:active,.grid-item:focus{grid-column-end:span 2;grid-row-end:span 2;z-index:1000} */
 
 .element .title{position:absolute;top:0;right:0}
@@ -67,3 +73,14 @@
 
 .element.radioactive .card::after{content:" ";position:absolute;top:0;left:0;bottom:0;right:0;z-index:0;background-image:url(radioactive.svg);background-position: center center;background-size:50%;background-repeat:no-repeat;opacity:0.15}
 .element.radioactive .number{color:#ffc107 !important}
+
+#page-footer{color:#6c757d;background:#1e2022}
+#page-footer *{border-color:#6c757d!important}
+footer .social-media a{display:inline-block;width:100%;min-height:12.5vw;line-height:12.5vw;font-size:5vw;text-align:center}
+footer .links ul{min-height:12.5vw}
+footer a{color:#6c757d;transition:all 0.25s ease}
+footer a:hover{color:#fff;text-decoration:none}
+footer .social-media a.facebook:hover{background-color:#4267b2}
+footer .social-media a.twitter:hover{background-color:#1da1f2}
+footer .social-media a.youtube:hover{background-color:#f00}
+footer .social-media a.instagram:hover{background-color:#111}
