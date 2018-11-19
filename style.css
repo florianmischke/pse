@@ -1,3 +1,5 @@
+.container-fluid{padding-left:30px;padding-right:30px}
+
 .text-underline-dotted{text-decoration:underline;text-decoration-style:dotted}
 .text-underline-dashed{text-decoration:underline;text-decoration-style:dashed}
 
@@ -5,8 +7,8 @@
   display:grid;
   grid-template-columns: repeat( 18, minmax(75px, 1fr) );
   grid-template-areas: "alkali alkaline transition transition transition transition transition transition transition transition transition transition boron carbon pnictogen chalcogen halogen noble";
-  grid-column-gap: 3px;
-  grid-row-gap: 3px;
+  grid-column-gap: 1px;
+  grid-row-gap: 1px;
   justify-items: stretch;
 }
 .grid-item{
