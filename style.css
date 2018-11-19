@@ -57,6 +57,8 @@
 
 .o-h-100:hover{opacity:1}
 
+.blockquote{border-width:3px!important}
+
 .switch{}
 [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
   position: absolute;
