@@ -134,6 +134,15 @@
 .element.radioactive .card::after{content:" ";position:absolute;top:0;left:0;bottom:0;right:0;z-index:0;background-image:url(radioactive.svg);background-position: center center;background-size:50%;background-repeat:no-repeat;opacity:0.15}
 .element.radioactive .number{color:#ffc107 !important}
 
+.minimalistic .element .card-title .title{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:2rem}
+.minimalistic .element .card-title .number{position:absolute;top:25%;left:0}
+.minimalistic .element .card-title .badge-light{background:transparent}
+.minimalistic .element[data-phase="solid"] .card-title .badge-light{color:#fff !important}
+.minimalistic .element.nav-item .card-title .badge-light{color:#fff !important}
+.minimalistic .element .card-body{height:1;padding-bottom:75%}
+.minimalistic .element .mass{position:absolute;bottom:0}
+.minimalistic .element .shells{display:none}
+
 .big-arrow{font-size:8rem;height:100%;position:absolute;bottom:0;left:50%;transform:translateX(-50%);}
 
 #page-footer{color:#6c757d;background:#1e2022}

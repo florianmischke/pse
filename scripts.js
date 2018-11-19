@@ -167,4 +167,8 @@ jQuery(function($) {
   $('#themeSwitch').find('input').change(function() {
     $('body').toggleClass('dark-theme')
   })
+
+  $('#minimalisticSwitch').find('input').change(function() {
+    $('body').toggleClass('minimalistic')
+  })
 })
