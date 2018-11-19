@@ -5,7 +5,7 @@
 
 .grid{
   display:grid;
-  grid-template-columns: repeat( 18, minmax(75px, 1fr) );
+  grid-template-columns: repeat( 18, minmax(90px, 1fr) );
   grid-template-areas: "alkali alkaline transition transition transition transition transition transition transition transition transition transition boron carbon pnictogen chalcogen halogen noble";
   grid-column-gap: 1px;
   grid-row-gap: 1px;
