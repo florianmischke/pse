@@ -109,21 +109,37 @@
 .element .title{float:right}
 .element .number{float:left}
 .element .card-header{padding:0}
-.element .card-body{padding:1.25rem 0.5rem;}
+.element .card-body{padding:0.25rem 0.25rem 0.0rem;}
 .element .subtitle{font-size:0.75rem;clear:both}
 .element p{margin-bottom:0.25rem;font-size:0.6875rem}
 
+.element[data-group="1"]::before{display:block;position:absolute;left:-0.75em;top:50%;transform:translateY(-50%);opacity:0.5;font-size:1.75em;}
+.element[data-period="1"][data-group="1"]::before{content:"1"}
+.element[data-period="2"][data-group="1"]::before{content:"2"}
+.element[data-period="3"][data-group="1"]::before{content:"3"}
+.element[data-period="4"][data-group="1"]::before{content:"4"}
+.element[data-period="5"][data-group="1"]::before{content:"5"}
+.element[data-period="6"][data-group="1"]::before{content:"6"}
+.element[data-period="7"][data-group="1"]::before{content:"7"}
+
 .element.noble.gas .card{background-color:#007bff !important;color:#fff!important}
-.element.metal .card{background-color:#6c757d !important;color:#fff!important}
+.element.metal .card{background-color:#343a40 !important;color:#fff!important}
 .element.metalloid .card{background-color:#cc6003 !important;color:#fff!important}
 .element.nonmetal .card{background-color:#17a2b8 !important;color:#fff!important}
 .element.lanthanide .card{background-color:#343a40 !important;color:#fff!important}
-.element.actinide .card{background-color:#343a40 !important;color:#fff!important}
+.element.actinide .card{background-color:#1f2124 !important;color:#fff!important}
+
+.element.metal.metalloid .card{background: linear-gradient(45deg, #343a40 50%, #cc6003 50%) !important}
+.element.nonmetal.metalloid .card{background: linear-gradient(45deg, #cc6003 50%, #17a2b8 50%) !important}
+
+.element.unknown .card,
+.element.metalloid.unknown .card,
+.element.noble.gas.unknown .card{background-color:#6c757d!important}
 
 .badge-warning-dark{background-color:#cc6003 !important;color:#fff!important}
 
 .dark-theme{background-color:#1e2022;color:#fff}
-.dark-theme .element.metal .card{background-color:#6c757d !important;color:#fff!important}
+/* .dark-theme .element.metal .card{background-color:#6c757d !important;color:#fff!important} */
 .dark-theme .modal-content{background-color:#343a40}
 .dark-theme .modal-header .close{color:#fff}
 .dark-theme .modal-header .close:hover{color:#fff}
@@ -131,7 +147,7 @@
 .element[data-phase="gas"] .title{color:#dc3545 !important}
 .element[data-phase="liquid"] .title{color:#007bff !important}
 
-.element.radioactive .card::after{content:" ";position:absolute;top:0;left:0;bottom:0;right:0;z-index:0;background-image:url(radioactive.svg);background-position: center center;background-size:50%;background-repeat:no-repeat;opacity:0.15}
+.element.radioactive .card::after{content:" ";position:absolute;top:0;left:0;bottom:0;right:0;z-index:0;background-image:url(../images/radioactive.svg);background-position: center center;background-size:50%;background-repeat:no-repeat;opacity:0.15}
 .element.radioactive .number{color:#ffc107 !important}
 
 .minimalistic .element .card-title .title{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:2rem}
