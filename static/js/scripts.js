@@ -1,49 +1,7 @@
 jQuery(function($) {
-  var elementTemplate = $('a.element').last()
-  jQuery.getJSON("elements.json", function(elements) {
-    // var json = $.extend(true, {}, elements, window.language);
-    var json = elements
-    $.each(json.elements, function(key, value) {
-      element = elementTemplate.clone()
-      element.attr('id','element-'+value.symbol.toLowerCase())
-      element.attr('data-i',value.number)
-      element.addClass(value.category)
-      element.css({
-        "grid-column-start": ""+value.xpos,
-        "grid-row-start": ""+value.ypos
-      })
-      element.attr('data-phase',value.phase.toLowerCase())
-      element.find('.title').html(value.symbol)
-      element.find('.number').html(value.number)
-      element.find('.subtitle').html(value.name)
-      element.find('.mass').html('<i class="fas fa-weight-hanging"></i> '+value.atomic_mass.toFixed(3))
-      element.find('.shells').html('<i class="fas fa-atom"></i> '+value.shells.join('/'))
-      if(value.summary.indexOf('radioactive') != -1 || parseInt(value.number) >= 83) element.addClass('radioactive')
-      description = '<p>'+value.summary+'</p>'
-      description += '<a href="'+value.source+'" target="_blank"><i class="fas fa-external-link-alt"></i> Source</a>'
-      table = $('<table class="table table-striped table-sm"/>')
-      if(value.period) $('<tr><th>Period</th><td>'+value.period+'</td></tr>').appendTo(table);
-      if(value.atomic_mass) $('<tr><th>Atomic mass</th><td>'+value.atomic_mass+'</td></tr>').appendTo(table);
-      if(value.melt) {
-        melt_kelvin = value.melt
-        melt_celsius = Math.round(melt_kelvin - 273.15)
-        $('<tr><th>Melting Point</th><td>'+melt_kelvin+' K ('+melt_celsius+' °C)</td></tr>').appendTo(table);
-      }
-      if(value.boil) {
-        boil_kelvin = value.boil
-        boil_celsius = Math.round(boil_kelvin - 273.15)
-        $('<tr><th>Boiling Point</th><td>'+boil_kelvin+' K ('+boil_celsius+' °C)</td></tr>').appendTo(table);
-      }
-      if(value.density) $('<tr><th>Density</th><td>'+value.density+' g/cm<sup>3</sup></td></tr>').appendTo(table);
-      if(value.appearance) $('<tr><th>appearance</th><td>'+value.appearance+'</td></tr>').appendTo(table);
-      if(value.category) $('<tr><th>category</th><td>'+value.category+'</td></tr>').appendTo(table);
-      if(value.color) $('<tr><th>Color</th><td>'+value.color+'</td></tr>').appendTo(table);
-      element.find('.description').html(description).prepend(table)
-      $('#pse').append(element);
-    })
-  })
   $('#elementModal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget) // Button that triggered the modal
+    console.log = button
     var name = '<small>Element #'+button.find('.number').text()+'</small>: '+button.find('.subtitle').text()+' ('+button.find('.title').text()+')'
     var description = button.find('.description').html()
     var modal = $(this)
@@ -93,7 +51,7 @@ jQuery(function($) {
   })
 
   function setAppLanguage(languageIdent, callback = function() {}) {
-    jQuery.getJSON('language/'+languageIdent+".json", function(language) {
+    jQuery.getJSON('static/json/language/'+languageIdent+".json", function(language) {
       $('title').text(language.title)
       $('a.navbar-brand').html(language.title)
       $('#legend').children().each(function(key, value) {
@@ -107,13 +65,13 @@ jQuery(function($) {
           }).addClass('text-underline-dashed').tooltip()
         }
       })
-      $('a.element:not(.nav-item)').each(function(key, value) {
+      $('.element:not(.nav-item)').each(function(key, value) {
         var i = parseInt($(this).attr('data-i')) - 1
         if(typeof language.elements[i] !== 'undefined')
           $(this).find('.subtitle').html(language.elements[i].name)
       })
-      $('a.element.nav-item').each(function(key, value) {
-        console.log(key)
+      $('.element.nav-item:not(#example)').each(function(key, value) {
+        // console.log(key)
         $(this).find('.subtitle').html(language.navItems[key].name)
       })
       return language
