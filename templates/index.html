@@ -5,35 +5,36 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link rel="apple-touch-icon" sizes="57x57" href="images/favicons/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="images/favicons/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="images/favicons/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="images/favicons/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="images/favicons/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="images/favicons/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="images/favicons/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="images/favicons/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-icon-180x180.png">
+  <link rel="apple-touch-icon" sizes="57x57" href="static/images/favicons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="static/images/favicons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="static/images/favicons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="static/images/favicons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="static/images/favicons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="static/images/favicons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="static/images/favicons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="static/images/favicons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="static/images/favicons/apple-icon-180x180.png">
 
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="images/favicons/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="static/images/favicons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="static/images/favicons/favicon-16x16.png">
 
   <meta name="msapplication-TileColor" content="#28a745">
-  <meta name="msapplication-TileImage" content="images/favicons/ms-icon-144x144.png">
+  <meta name="msapplication-TileImage" content="static/images/favicons/ms-icon-144x144.png">
   <meta name="theme-color" content="#28a745">
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/8ff51804be.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.3/css/bootstrap-select.min.css" integrity="sha256-q+3CS1i6GuPNz/JQk7dapdWXvii85xf7vecZx2QqsFI=" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.css" integrity="sha256-9MbYWPlETRYDxprjQWUUAkiU6JtQaY1EustxQWdQwhk=" crossorigin="anonymous" />
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="static/css/style.css">
 
   <title>Periodic table of elements</title>
 </head>
 <body class="dark-theme">
 
+  {% if elements %}
   <div class="container-fluid">
 
     <div class="grid mt-0" id="legend">
@@ -48,7 +49,7 @@
       <div class="grid-item"><p class="h1">VIII</p> <p class="h5 name">Noble</p> <p class="h2">18</p> </div>
     </div>
     <div class="grid mt-3" id="pse">
-      <div class="grid-item element nav-item" style="grid-column-start: 4; grid-column-end: 6; grid-row-start: 1; grid-row-end: 3;">
+      <div class="grid-item element nav-item" id="example" style="grid-column-start: 4; grid-column-end: 6; grid-row-start: 1; grid-row-end: 3;">
         <div class="card h-100 bg-secondary text-white">
           <div class="card-header">
             <h4 class="card-title">
@@ -73,7 +74,7 @@
         <h5 class="text-center">Backgrounds: <span class="badge badge-secondary">metal</span> <span class="badge badge-warning-dark">metalloid</span> <span class="badge badge-info">nonmetal</span> <span class="badge badge-primary">noble gas</span></h5>
         <ol>
           <li>Element number, also number of protons<br>colors: <span class="text-warning text-underline-dashed" data-toggle="tooltip" data-placement="top" title="in other words: no stable isotope">radioactive</span></li>
-          <li>Element symbol<br>colors: solid / <span class="text-danger">gaseous</span> / <span class="text-primary">liquid</span> (state at <span class="text-underline-dashed" data-toggle="tooltip" data-placement="top" title="25° C.">room temperature</span>)</li>
+          <li>Element symbol<br>colors: solid / <span class="text-danger">gaseous</span> / <span class="text-primary">liquid</span> (state at <span class="text-underline-dashed" data-toggle="tooltip" data-placement="top" title="25° C. | 298.15 K">room temperature</span>)</li>
           <li>Element name</li>
           <li>Atomic mass in u or g/mol</li>
           <li>Electron configuration, electrons per "shell"</li>
@@ -89,6 +90,70 @@
       <div class="grid-item text-center" style="grid-column-start: 10; grid-row-start: 3; align-self: end;"><p class="h1"></p> <p class="h2">10</p></div>
       <div class="grid-item text-center" style="grid-column-start: 11; grid-row-start: 3; align-self: end;"><p class="h1">I B</p> <p class="h2">11</p></div>
       <div class="grid-item text-center" style="grid-column-start: 12; grid-row-start: 3; align-self: end;"><p class="h1">II B</p> <p class="h2">12</p></div>
+      
+    {% for element in elements.values() %}
+    {% set my_css = 'style="grid-column-start: '|safe ~ element.xpos ~ ';grid-row-start: ' ~ element.ypos ~ '"'|safe %}
+    <div href="#" class="grid-item element {{element.css_classes}} {% if element.hybrid %} {{element.hybrid}}{% endif %} {% if element.number == 43 or element.number >= 83 %} radioactive{% endif %}" id="element-{{element.symbol|lower()}}" data-toggle="modal" data-target="#elementModal" data-phase="{{element.phase.lower()}}" data-i="{{element.number}}" data-group="{{element.group}}" data-period="{{element.period}}"  {{my_css}}>
+      <div class="card h-100">
+        <div class="card-header">
+          <h4 class="card-title">
+            <span class="badge badge-light title">{{element.symbol}}</span>
+            <span class="badge number">{{element.number}}</span>
+          </h4>
+          <h6 class="card-subtitle mb-2 subtitle text-center">{{element.name}}</h6>
+        </div>
+        <div class="card-body text-monospace">
+          <!-- {{element.group}} -->
+          <p class="mass text-right">{{element.atomic_mass|round(3)}} <i class="fas fa-weight-hanging"></i></p>
+          <hr class="mt-1 mb-1">
+          <p class="shells text-center">
+            <span>
+              <!-- <i class="fas fa-atom"> </i>  -->
+              {% if element.config %}{{element.config|safe}}{% endif %}<br>
+              {{element.shells|join('/<wbr>'|safe)}}
+            </span>
+          </p>
+          {% if element.en_pauling %}
+          <hr class="mt-1 mb-1">
+          <p class="en"><i class="fa-solid fa-plug-circle-minus"></i> {{element.en_pauling}}</p>
+          {% endif %}
+          
+          <div class="d-none">
+            <div class="description">
+              <p>{{element.summary}}</p>
+              <a href="{{element.source}}" target="_blank"><i class="fas fa-external-link-alt"></i> Source</a>
+              <table class="table table-striped table-sm">
+                {% if element.period %}
+                  <tr><th>Period</th><td>{{element.period}}</td></tr>
+                {% endif %}
+                {% if element.atomic_mass %}
+                  <tr><th>Atomic mass</th><td>{{element.atomic_mass}} <sup>g</sup>&frasl;<sub>mol</sub></td></tr>
+                {% endif %}
+                {% if element.melt %}
+                  <tr><th>Melting Point</th><td>{{element.melt}} K ({{(element.melt|float - 273.15)|round(3)}} °C)</td></tr>
+                {% endif %}
+                {% if element.boil %}
+                  <tr><th>Boiling Point</th><td>{{element.boil}} K ({{(element.boil|float - 273.15)|round(3)}} °C)</td></tr>
+                {% endif %}
+                {% if element.density %}
+                <tr><th>Density</th><td>{{element.density}}  <sup>g</sup>&frasl;<sub>cm<sup>3</sup></sub></td></tr>
+                {% endif %}
+                {% if element.appearance %}
+                  <tr><th>appearance</th><td>{{element.appearance}}</td></tr>
+                {% endif %}
+                {% if element.category %}
+                  <tr><th>category</th><td>{{element.category}}</td></tr>
+                {% endif %}
+                {% if element.color %}
+                  <tr><th>Color</th><td>{{element.color}}</td></tr>
+                {% endif %}
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
       <a href="#element-la" class="grid-item element nav-item" id="" style="grid-column-start: 3; grid-row-start: 6;">
         <div class="card h-100 bg-dark text-white">
           <div class="card-header">
@@ -117,6 +182,9 @@
         <p class="big-arrow text-center"><i class="fas fa-long-arrow-alt-down"></i></p>
       </div>
     </div> <!-- / .grid#pse -->
+
+  </div>
+  {% endif %}
 
     <div class="row mt-4 justify-content-md-center">
       <div class="col-md-auto">
@@ -305,7 +373,7 @@
     </div>
     <div class="">
       <div class="container">
-        <a href="" class="o-50 o-h-100"><img src="images/logo.png" class="img-fluid d-block mx-auto py-3" alt="" width="300px"></a>
+        <a href="" class="o-50 o-h-100"><img src="static/images/logo.png" class="img-fluid d-block mx-auto py-3" alt="" width="300px"></a>
       </div>
     </div>
     <div class="py-2 ">
@@ -341,7 +409,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.3/js/bootstrap-select.min.js" integrity="sha256-APwNt/Yju1ZD+yBddFqLhJsk21FXdiNGUuISL4EkUs4=" crossorigin="anonymous"></script>
-  <script src="jquery.liveFilter.js"></script>
-  <script src="scripts.js"></script>
+  <script src="static/js/jquery.liveFilter.js"></script>
+  <script src="static/js/scripts.js"></script>
 </body>
 </html>
