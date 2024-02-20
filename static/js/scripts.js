@@ -140,4 +140,9 @@ jQuery(function($) {
     $('#example').removeClass().addClass(example.attr('class'))
     $('#example .card').html(example.children().clone())
   })
+
+  $('[data-toggle="offcanvas"]').on('click', function () {
+    $('.offcanvas-collapse').toggleClass('open')
+  })
+
 })

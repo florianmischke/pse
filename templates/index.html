@@ -30,12 +30,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.css" integrity="sha256-9MbYWPlETRYDxprjQWUUAkiU6JtQaY1EustxQWdQwhk=" crossorigin="anonymous" />
   <link rel="stylesheet" href="static/css/style.css">
 
+
   <title>Periodic table of elements</title>
 </head>
 <body class="dark-theme">
 
   {% if elements %}
-  {{element}}
   <div class="container-fluid">
 
     <div class="grid mt-0" id="legend">
@@ -98,6 +98,27 @@
         
     {% for key in elements %}
     {% if key == 'order' %}
+
+    <nav class="navbar fixed-top navbar-dark text-center">
+      <button class="navbar-toggler p-0 border-0 mx-auto text-muted" type="button" data-toggle="offcanvas">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    
+      <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="offcanvas">
+              <i class="fa-solid fa-bars"></i>
+            </a>
+          </li>
+          {% for nav_item in elements[key]|sort %}
+          <li class="nav-item">
+            <a class="nav-link py-0" href="#">{{nav_item|upper}}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </nav>
     {% else %}
     {% set element = elements[key] %}
     {% set my_css = 'style="grid-column-start: '|safe ~ element.xpos ~ ';grid-row-start: ' ~ element.ypos ~ '"'|safe %}
