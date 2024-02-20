@@ -120,10 +120,9 @@
               {{element.shells|join('/<wbr>'|safe)}}
             </span>
           </p>
-          {% if element.electronegativity_pauling %}
+          
           <hr class="mt-1 mb-1">
-          <p class="en"><i class="fa-solid fa-plug-circle-minus"></i> {{element.electronegativity_pauling}}</p>
-          {% endif %}
+          <p class="en"><i class="fa-solid fa-plug-circle-minus"></i> {% if element.electronegativity_pauling %}{{element.electronegativity_pauling}}{% else %}&ndash;{% endif %}</p>
           
           <div class="d-none">
             <div class="description">
@@ -180,7 +179,7 @@
     </div>
     {% endif %}
     {% endfor %}
-      <a href="#element-la" class="grid-item element nav-item" id="" style="grid-column-start: 3; grid-row-start: 6;">
+      <a href="#element-la" class="grid-item element nav-item lanthanide" id="" style="grid-column-start: 3; grid-row-start: 6;">
         <div class="card h-100 bg-dark text-white">
           <div class="card-header">
             <h4 class="card-title">
@@ -192,7 +191,7 @@
           </div>
         </div>
       </a>
-      <a href="#element-ac" class="grid-item element nav-item radioactive" id="" style="grid-column-start: 3; grid-row-start: 7;">
+      <a href="#element-ac" class="grid-item element nav-item actinide radioactive" id="" style="grid-column-start: 3; grid-row-start: 7;">
         <div class="card h-100 bg-dark text-white">
           <div class="card-header">
             <h4 class="card-title">
