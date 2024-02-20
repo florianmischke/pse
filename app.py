@@ -8,8 +8,7 @@ def clean_css_classes(str):
     return str.replace(',', '')
 
 def format_electronconfig(str):
-    regex = r'(\d[spdf])(\d+)'
-    return re.sub(regex, r'\1<sup>\2</sup>', str)
+    return re.sub(r'(\d[spdf])(\d+)', r'\1<sup>\2</sup>', str)
 
 def data_preparation(data):
     for key in data:
