@@ -165,16 +165,16 @@
                   <tr><th>Period</th><td>{{element.period}}</td></tr>
                 {% endif %}
                 {% if element.atomic_mass %}
-                  <tr><th>Atomic mass</th><td>{{element.atomic_mass}} <sup>g</sup>&frasl;<sub>mol</sub></td></tr>
+                  <tr><th><i class="fa-solid fa-weight-hanging"></i> Atomic mass</th><td>{{element.atomic_mass}} <sup>g</sup>&frasl;<sub>mol</sub></td></tr>
                 {% endif %}
                 {% if element.melt %}
-                  <tr><th>Melting Point</th><td>{{element.melt}} K ({{(element.melt|float - 273.15)|round(3)}} °C)</td></tr>
+                  <tr><th><i class="fa-solid fa-temperature-low"></i> Melting Point</th><td>{{element.melt}} K ({{(element.melt|float - 273.15)|round(3)}} °C)</td></tr>
                 {% endif %}
                 {% if element.boil %}
-                  <tr><th>Boiling Point</th><td>{{element.boil}} K ({{(element.boil|float - 273.15)|round(3)}} °C)</td></tr>
+                  <tr><th><i class="fa-solid fa-temperature-high"></i> Boiling Point</th><td>{{element.boil}} K ({{(element.boil|float - 273.15)|round(3)}} °C)</td></tr>
                 {% endif %}
                 {% if element.density %}
-                <tr><th>Density</th><td>{{element.density}}
+                <tr><th><i class="fa-solid fa-down-left-and-up-right-to-center"></i> Density</th><td>{{element.density}}
                   {% if element.phase.lower() == 'gas' %}
                     <sup>g</sup>&frasl;<sub>dm<sup>3</sup></sub> =
                     <sup>g</sup>&frasl;<sub>l</sub>
@@ -185,15 +185,23 @@
                 </td></tr>
                 {% endif %}
                 {% if element.appearance %}
-                  <tr><th>appearance</th><td>{{element.appearance}}</td></tr>
+                  <tr><th><i class="fa-solid fa-eye"></i> appearance</th><td>{{element.appearance}}</td></tr>
                 {% endif %}
                 {% if element.category %}
-                  <tr><th>category</th><td>{{element.category}}</td></tr>
+                  <tr><th><i class="fa-solid fa-tag"></i> category</th><td>{{element.category}}</td></tr>
                 {% endif %}
                 {% if element.color %}
-                  <tr><th>Color</th><td>{{element.color}}</td></tr>
+                  <tr><th><i class="fa-solid fa-palette"></i> Color</th><td>{{element.color}}</td></tr>
+                {% endif %}
+                {% if element.electron_affinity %}
+                  <tr><th><i class="fa-solid fa-plug-circle-plus"></i> Electroaffinity</th><td>{{element.electron_affinity}}</td></tr>
+                {% endif %}
+                {% if element.electronegativity_pauling %}
+                  <tr><th><i class="fa-solid fa-plug-circle-minus"></i> Electronegativity</th><td>{{element.electronegativity_pauling}}</td></tr>
                 {% endif %}
               </table>
+
+              <img src="{{element.bohr_model_image}}" class="img-responsive" alt="">
             </div>
           </div>
         </div>
