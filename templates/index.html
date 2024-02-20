@@ -35,6 +35,7 @@
 <body class="dark-theme">
 
   {% if elements %}
+  {{element}}
   <div class="container-fluid">
 
     <div class="grid mt-0" id="legend">
@@ -100,7 +101,7 @@
     {% else %}
     {% set element = elements[key] %}
     {% set my_css = 'style="grid-column-start: '|safe ~ element.xpos ~ ';grid-row-start: ' ~ element.ypos ~ '"'|safe %}
-    <div href="#" class="grid-item element {{element.category}} {% if element.hybrid %} {{element.hybrid}}{% endif %} {% if element.number == 43 or element.number >= 83 %} radioactive{% endif %}" id="element-{{element.symbol|lower()}}" data-toggle="modal" data-target="#elementModal" data-phase="{{element.phase.lower()}}" data-i="{{element.number}}" data-group="{{element.group}}" data-period="{{element.period}}"  {{my_css}}>
+    <div href="#" class="grid-item element {{element.css_classes}} {% if element.hybrid %} {{element.hybrid}}{% endif %} {% if element.number == 43 or element.number >= 83 %} radioactive{% endif %}" id="element-{{element.symbol|lower()}}" data-toggle="modal" data-target="#elementModal" data-phase="{{element.phase.lower()}}" data-i="{{element.number}}" data-group="{{element.group}}" data-period="{{element.period}}"  {{my_css}}>
       <div class="card h-100">
         <div class="card-header">
           <h4 class="card-title">
@@ -116,7 +117,7 @@
           <p class="shells text-center">
             <span>
               <!-- <i class="fas fa-atom"> </i>  -->
-              {% if element.electron_configuration_semantic %}{{element.electron_configuration_semantic|safe}}{% endif %}<br>
+              {% if element.electron_configuration_semantic_formatted %}{{element.electron_configuration_semantic_formatted|safe}}{% endif %}<br>
               {{element.shells|join('/<wbr>'|safe)}}
             </span>
           </p>
