@@ -129,4 +129,15 @@ jQuery(function($) {
   $('#minimalisticSwitch').find('input').change(function() {
     $('body').toggleClass('minimalistic')
   })
+
+  var example = $('#example').clone()
+  $('.element:not(.nav-item)').hover(function(e) {
+    var element = $(this).children().clone()
+    var classes = $(this).attr('class')
+    $('#example').removeClass().addClass(classes)
+    $('#example .card').html(element)
+  }, function() {
+    $('#example').removeClass().addClass(example.attr('class'))
+    $('#example .card').html(example.children().clone())
+  })
 })
