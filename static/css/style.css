@@ -221,3 +221,16 @@ footer .social-media a.instagram:hover{background-color:#111}
 .youtube-link{
   position:absolute;top:0;left:0;color:#fff;text-shadow: 0px 0px 10px rgba(0,0,0,0.8);
 }
+
+
+.block-model{
+  display:grid;
+  grid-template-columns: repeat( 32, minmax(37px, 1fr) );
+  grid-column-gap: 1px;
+  grid-row-gap: 1px;
+  justify-items: stretch;
+}
+.grid-item{
+  display:block;
+  position:relative;
+}
