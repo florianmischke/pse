@@ -234,3 +234,6 @@ footer .social-media a.instagram:hover{background-color:#111}
   display:block;
   position:relative;
 }
+
+body:not(.dark-theme) .grid .element{filter:invert(95%) hue-rotate(180deg)}
+body:not(.dark-theme) .grid .element img{filter:invert(95%) hue-rotate(180deg)}
