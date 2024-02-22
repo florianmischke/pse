@@ -20,7 +20,7 @@ def data_preparation(data):
     return data
 
 @app.route("/")
-def home(name=None):
+def home(name='Periodic table of elements'):
     with open('static/json/periodic-table-lookup.json', 'r', encoding="utf8") as f:
         data = json.load(f)
 
