@@ -1,3 +1,6 @@
+html,body{overflow-x:hidden}
+#main{overflow-x:auto;}
+
 .container-fluid{padding-left:30px;padding-right:30px}
 
 .text-underline-dotted{text-decoration:underline;text-decoration-style:dotted}
@@ -5,7 +8,7 @@
 
 .grid{
   display:grid;
-  grid-template-columns: repeat( 18, minmax(90px, 1fr) );
+  grid-template-columns: repeat( 18, minmax(80px, 1fr) );
   grid-template-areas: "alkali alkaline transition transition transition transition transition transition transition transition transition transition boron carbon pnictogen chalcogen halogen noble";
   grid-column-gap: 1px;
   grid-row-gap: 1px;
@@ -253,6 +256,7 @@ footer .social-media a.instagram:hover{background-color:#111}
   grid-column-gap: 1px;
   grid-row-gap: 1px;
   justify-items: stretch;
+  overflow-x: auto;
 }
 .grid-item{
   display:block;
