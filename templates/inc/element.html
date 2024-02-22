@@ -1,6 +1,6 @@
 
 {% set my_css = 'style="grid-column-start: '|safe ~ element.xpos ~ ';grid-row-start: ' ~ element.ypos ~ '"'|safe %}
-<div href="#" class="grid-item element {{element.css_classes}} {% if element.hybrid %} {{element.hybrid}}{% endif %} {% if element.number == 43 or element.number >= 83 %} radioactive{% endif %}" id="element-{{element.name|lower()}}" data-toggle="modal" data-target="#elementModal" data-phase="{{element.phase.lower()}}" data-i="{{element.number}}" data-group="{{element.group}}" data-period="{{element.period}}"  {{my_css}}>
+<div href="#" class="grid-item element {{element.css_classes}} {% if element.hybrid %} {{element.hybrid}}{% endif %} {% if element.radioactive == True %} radioactive{% endif %}" id="element-{{element.name|lower()}}" data-toggle="modal" data-target="#elementModal" data-phase="{{element.phase.lower()}}" data-i="{{element.number}}" data-group="{{element.group}}" data-period="{{element.period}}"  {{my_css}}>
   <div class="card h-100">
     <div class="card-header">
       <h4 class="card-title">
