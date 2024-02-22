@@ -155,4 +155,34 @@ jQuery(function($) {
     }, 1500)
   })
 
+  function setBackgroundGradientAngle() {
+    $('.metal.metalloid, .metalloid.nonmetal').children('.card').each(function() {
+      var self = $(this)
+      let atan = Math.atan(self.height() / self.width());
+      let angle = 180*atan/Math.PI
+      let background = self.css('background')
+      let new_background = background.replace(/(\d*deg)/, angle.toFixed(0)+'deg')
+      // self.attr("style", "background: "+new_background+" !important")
+      self.css("background", new_background)
+    })
+  }
+  
+  setBackgroundGradientAngle()
+  $(window).resize(function() {
+    waitForFinalEvent(function() {
+      setBackgroundGradientAngle()
+    }, 100, "some unique string");    
+  })
+  var waitForFinalEvent = (function () {
+    var timers = {};
+    return function (callback, ms, uniqueId) {
+      if (!uniqueId) {
+        uniqueId = "Don't call this twice without a uniqueId";
+      }
+      if (timers[uniqueId]) {
+        clearTimeout (timers[uniqueId]);
+      }
+      timers[uniqueId] = setTimeout(callback, ms);
+    };
+  })();
 })

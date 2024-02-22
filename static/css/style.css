@@ -128,19 +128,34 @@
 .element[data-period="6"][data-group="1"]::before{content:"6"}
 .element[data-period="7"][data-group="1"]::before{content:"7"}
 
-.element.noble.gas .card{background-color:#007bff !important;color:#fff!important}
-.element.metal .card{background-color:#343a40 !important;color:#fff!important}
-.element.metalloid .card{background-color:#cc6003 !important;color:#fff!important}
-.element.nonmetal .card{background-color:#17a2b8 !important;color:#fff!important}
-.element.lanthanide .card{background-color:#262a2e !important;color:#fff!important}
-.element.actinide .card{background-color:#1f2124 !important;color:#fff!important}
+.element.noble.gas .card{background-color:#007bff;border-color:#007bff;color:#fff}
+.element.metal .card{background-color:#343a40;border-color:#343a40;color:#fff}
+.element.metalloid .card{background-color:#cc6003;border-color:#cc6003;color:#fff}
+.element.nonmetal .card{background-color:#17a2b8;border-color:#17a2b8;color:#fff}
+.element.lanthanide .card{background-color:#262a2e;border-color:#262a2e;color:#fff}
+.element.actinide .card{background-color:#1f2124;border-color:#1f2124;color:#fff}
 
-.element.metal.metalloid .card{background: linear-gradient(45deg, #343a40 50%, #cc6003 50%) !important}
-.element.nonmetal.metalloid .card{background: linear-gradient(45deg, #cc6003 50%, #17a2b8 50%) !important}
+.element.metal.metalloid .card{
+  background: linear-gradient(45deg, #343a40 50%, #cc6003 50%);
+  border-top-color:#cc6003;
+  border-right-color:#cc6003;
+  border-left-color:#343a40;
+  border-bottom-color:#343a40;
+}
+.element.nonmetal.metalloid .card{
+  background: linear-gradient(45deg, #cc6003 50%, #17a2b8 50%);
+  border-top-color:#17a2b8;
+  border-right-color:#17a2b8;
+  border-left-color:#cc6003;
+  border-bottom-color:#cc6003;
+}
+
+/* .element.metal.metalloid .card[data-angle]{background: linear-gradient(attr(data-angle,45deg), #343a40 50%, #cc6003 50%) !important}
+.element.nonmetal.metalloid .card[data-angle]{background: linear-gradient(attr(data-angle,45deg), #343a40 50%, #cc6003 50%) !important} */
 
 .element.unknown .card,
 .element.metalloid.unknown .card,
-.element.noble.gas.unknown .card{background-color:#6c757d!important}
+.element.noble.gas.unknown .card{background-color:#6c757d;border-color:#6c757d}
 
 .badge-warning-dark{background-color:#cc6003 !important;color:#fff!important}
 
