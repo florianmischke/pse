@@ -39,4 +39,4 @@ def home(name='Periodic table of elements'):
     return render_template('index.html', name=name, elements=elements)
 
 
-app.run(host='localhost', debug=True)
+app.run(host='0.0.0.0', debug=True)
