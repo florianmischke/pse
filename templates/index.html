@@ -8,16 +8,20 @@
   {% if elements %}
   <div class="container-fluid">
 
+    <!-- legend for main groups -->
     <div class="grid mt-0" id="legend">
       {% include 'inc/main_grid_legend.html' %}
     </div>
 
     <div class="grid mt-3" id="pse">
+      <!-- example element with explanation/legend -->
       {% include 'inc/example_element.html' %}
       {% include 'inc/content/de_de/explanation.html' %}
 
+      <!-- legend for transition metals -->
       {% include 'inc/sub_grid_legend.html' %}
-        
+
+      <!-- Main element loop -->
       {% for key in elements %}
         {% if key == 'order' %}
           {% include 'inc/element-nav.html' %}
@@ -26,6 +30,7 @@
           {% include 'inc/element.html' %}
         {% endif %}
       {% endfor %}
+
       <a href="#element-la" class="grid-item element nav-item lanthanide" id="" style="grid-column-start: 3; grid-row-start: 6;">
         <div class="card h-100 bg-dark text-white">
           <div class="card-header">
@@ -57,18 +62,24 @@
 
   </div>
 
+  <!-- preferences of details display  -->
   {% include 'inc/preferences.html' %}
 
   {% endif %}
 
+    <!-- banner ad -->
     {% include 'inc/banner_ad.html' %}
 
+    <!-- navbar -->
     {% include 'inc/navbar.html' %}
 
+    <!-- main content -->
     {% include 'inc/content/de_de/home.html' %}
 
+    <!-- banner ad -->
     {% include 'inc/banner_ad.html' %}
 
+    <!-- secondary content -->
     <div class="container">
       <h3 class="mt-5">Periodensystem im breiten Format</h3>
     </div>
@@ -86,10 +97,12 @@
 
   </div> <!-- / .container-fluid -->
 
+  <!-- footer -->
   {% include 'inc/footer.html' %}
 
+  <!-- modal -->
   {% include 'inc/modal.html' %}
-  
+
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
