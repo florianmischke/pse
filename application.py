@@ -2,7 +2,7 @@ from flask import Flask, render_template, json, jsonify
 import json, re
 from pprint import pprint
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 def clean_css_classes(str):
     return str.replace(',', '')
