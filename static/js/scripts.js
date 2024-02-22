@@ -145,4 +145,14 @@ jQuery(function($) {
     $('.offcanvas-collapse').toggleClass('open')
   })
 
+  $('#element-navbar .nav-link').click(function() {
+    var element_name = $(this).attr('href').slice(1)
+    var selector = '#element-'+element_name+' .card'
+    $(selector).addClass('focus')
+    $(window).scrollTop($(selector).offset().top - $(window).height()/2);
+    setTimeout(function() {
+      $(selector).removeClass('focus')
+    }, 1500)
+  })
+
 })
