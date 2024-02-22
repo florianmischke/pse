@@ -66,8 +66,7 @@
 
 .blockquote{border-width:3px!important}
 
-.switch{}
-[type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+.switch [type="checkbox"]:not(:checked), .switch [type="checkbox"]:checked {
   position: absolute;
   opacity: 0;
   pointer-events: none;
