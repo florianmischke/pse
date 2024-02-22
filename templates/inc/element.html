@@ -26,72 +26,85 @@
       
       <div class="d-none">
         <div class="description">
-          <p>{{element.summary}}</p>
-          <a href="{{element.source}}" target="_blank"><i class="fas fa-external-link-alt"></i> Source</a>
+          <div class="row">
+            <div class="col">
+              <p class="h3">Beschreibung</p>
+              <p>{{element.summary}}</p>
+              <a href="{{element.source}}" target="_blank"><i class="fas fa-external-link-alt"></i> Source</a>
+            </div>
 
-          <div class="card bg-dark text-white mt-2 mb-2">
-            <img class="card-img-top" src="{{element.image.url}}" alt="{{element.image.title}}" loading="lazy">
-            <div class="card-body ">
-              <p class="card-text">
-                <a href="{{element.image.url}}" title="{{element.image.title}}" target="_blank">{{element.image.title}}</a>
-                {{element.image.attribution}}</p>
+            <div class="col col-xl-3 col-lg-5 col-md-6 col-sm-12 col-xs-12">
+              <p class="h3">Bild</p>
+              <figure class="figure">
+                <img src="{{element.image.url}}" class="figure-img img-fluid rounded img-responsive" alt="{{element.image.title}}" loading="lazy">
+                <figcaption class="figure-caption">
+                  <a href="{{element.image.url}}" title="{{element.image.title}}" target="_blank">{{element.image.title}}</a>
+                  {{element.image.attribution}}
+                </figcaption>
+              </figure>
+            </div>
+
+            <div class="col col-xl-6 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <p class="h3">Eigenschaften/Parameter</p>
+              <table class="table table-striped table-sm text-white">
+                {% if element.period %}
+                  <tr><th><i class="fa-solid fa-grip-lines"></i> Period</th><td>{{element.period}}</td></tr>
+                {% endif %}
+                {% if element.group %}
+                  <tr><th><i class="fa-solid fa-grip-lines-vertical"></i> Group</th><td>{{element.group}}</td></tr>
+                {% endif %}
+                {% if element.atomic_mass %}
+                  <tr><th><i class="fa-solid fa-weight-hanging"></i> Atomic mass</th><td>{{element.atomic_mass}} <sup>g</sup>&frasl;<sub>mol</sub></td></tr>
+                {% endif %}
+                {% if element.melt %}
+                  <tr><th><i class="fa-solid fa-temperature-low"></i> Melting Point</th><td>{{element.melt}} K ({{(element.melt|float - 273.15)|round(3)}} °C)</td></tr>
+                {% endif %}
+                {% if element.boil %}
+                  <tr><th><i class="fa-solid fa-temperature-high"></i> Boiling Point</th><td>{{element.boil}} K ({{(element.boil|float - 273.15)|round(3)}} °C)</td></tr>
+                {% endif %}
+                {% if element.density %}
+                <tr><th><i class="fa-solid fa-down-left-and-up-right-to-center"></i> Density</th><td>{{element.density}}
+                  {% if element.phase.lower() == 'gas' %}
+                    <sup>g</sup>&frasl;<sub>dm<sup>3</sup></sub> =
+                    <sup>g</sup>&frasl;<sub>l</sub>
+                  {% else %}
+                    <sup>g</sup>&frasl;<sub>cm<sup>3</sup></sub> = 
+                    <sup>kg</sup>&frasl;<sub>dm<sup>3</sup></sub>
+                  {% endif %}
+                </td></tr>
+                {% endif %}              
+                {% if element.electron_configuration_semantic_formatted %}
+                <tr><th><i class="fa-solid fa-atom"></i> Configuration</th><td>{{element.electron_configuration_semantic_formatted|safe}}</td></tr>
+                {% endif %}
+                {% if element.shells %}
+                  <tr><th><i class="fa-solid fa-atom"></i> Shells</th><td>{{element.shells|join('/<wbr>'|safe)}}</td></tr>
+                {% endif %}
+                {% if element.appearance %}
+                  <tr><th><i class="fa-solid fa-eye"></i> appearance</th><td>{{element.appearance}}</td></tr>
+                {% endif %}
+                {% if element.category %}
+                  <tr><th><i class="fa-solid fa-tag"></i> category</th><td>{{element.category}}</td></tr>
+                {% endif %}
+                {% if element.color %}
+                  <tr><th><i class="fa-solid fa-palette"></i> Color</th><td>{{element.color}}</td></tr>
+                {% endif %}
+                {% if element.electron_affinity %}
+                  <tr><th><i class="fa-solid fa-plug-circle-plus"></i> Electroaffinity</th><td>{{element.electron_affinity}}</td></tr>
+                {% endif %}
+                {% if element.electronegativity_pauling %}
+                  <tr><th><i class="fa-solid fa-plug-circle-minus"></i> Electronegativity</th><td>{{element.electronegativity_pauling}}</td></tr>
+                {% endif %}
+              </table>
+
             </div>
           </div>
 
-          <table class="table table-striped table-sm">
-            {% if element.period %}
-              <tr><th><i class="fa-solid fa-grip-lines"></i> Period</th><td>{{element.period}}</td></tr>
-            {% endif %}
-            {% if element.group %}
-              <tr><th><i class="fa-solid fa-grip-lines-vertical"></i> Group</th><td>{{element.group}}</td></tr>
-            {% endif %}
-            {% if element.atomic_mass %}
-              <tr><th><i class="fa-solid fa-weight-hanging"></i> Atomic mass</th><td>{{element.atomic_mass}} <sup>g</sup>&frasl;<sub>mol</sub></td></tr>
-            {% endif %}
-            {% if element.melt %}
-              <tr><th><i class="fa-solid fa-temperature-low"></i> Melting Point</th><td>{{element.melt}} K ({{(element.melt|float - 273.15)|round(3)}} °C)</td></tr>
-            {% endif %}
-            {% if element.boil %}
-              <tr><th><i class="fa-solid fa-temperature-high"></i> Boiling Point</th><td>{{element.boil}} K ({{(element.boil|float - 273.15)|round(3)}} °C)</td></tr>
-            {% endif %}
-            {% if element.density %}
-            <tr><th><i class="fa-solid fa-down-left-and-up-right-to-center"></i> Density</th><td>{{element.density}}
-              {% if element.phase.lower() == 'gas' %}
-                <sup>g</sup>&frasl;<sub>dm<sup>3</sup></sub> =
-                <sup>g</sup>&frasl;<sub>l</sub>
-              {% else %}
-                <sup>g</sup>&frasl;<sub>cm<sup>3</sup></sub> = 
-                <sup>kg</sup>&frasl;<sub>dm<sup>3</sup></sub>
-              {% endif %}
-            </td></tr>
-            {% endif %}
-            
-            {% if element.electron_configuration_semantic_formatted %}
-            <tr><th><i class="fa-solid fa-atom"></i> Configuration</th><td>{{element.electron_configuration_semantic_formatted|safe}}</td></tr>
-            {% endif %}
-
-            {% if element.shells %}
-              <tr><th><i class="fa-solid fa-atom"></i> Shells</th><td>{{element.shells|join('/<wbr>'|safe)}}</td></tr>
-            {% endif %}
-
-            {% if element.appearance %}
-              <tr><th><i class="fa-solid fa-eye"></i> appearance</th><td>{{element.appearance}}</td></tr>
-            {% endif %}
-            {% if element.category %}
-              <tr><th><i class="fa-solid fa-tag"></i> category</th><td>{{element.category}}</td></tr>
-            {% endif %}
-            {% if element.color %}
-              <tr><th><i class="fa-solid fa-palette"></i> Color</th><td>{{element.color}}</td></tr>
-            {% endif %}
-            {% if element.electron_affinity %}
-              <tr><th><i class="fa-solid fa-plug-circle-plus"></i> Electroaffinity</th><td>{{element.electron_affinity}}</td></tr>
-            {% endif %}
-            {% if element.electronegativity_pauling %}
-              <tr><th><i class="fa-solid fa-plug-circle-minus"></i> Electronegativity</th><td>{{element.electronegativity_pauling}}</td></tr>
-            {% endif %}
-          </table>
-
-          <img src="{{element.bohr_model_image}}" class="img-responsive" alt="">
+          <figure class="figure">
+            <img src="{{element.bohr_model_image}}" class="figure-img img-fluid rounded img-responsive" alt="Bohrsches Atommodell von  {{element.name}}" loading="lazy">
+            <figcaption class="figure-caption">
+              Bohrsches Atommodell von {{element.name}}
+            </figcaption>
+          </figure>
         </div>
       </div>
     </div>
