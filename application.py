@@ -29,7 +29,7 @@ def data_preparation(data):
         data[key]['electron_configuration_semantic_formatted'] = format_electronconfig(data[key]['electron_configuration_semantic'])
     return data
 
-@app.route("/")
+@application.route("/")
 def home(name='Periodic table of elements'):
     with open('static/json/periodic-table-lookup.json', 'r', encoding="utf8") as f:
         data = json.load(f)
@@ -39,4 +39,4 @@ def home(name='Periodic table of elements'):
     return render_template('index.html', name=name, elements=elements)
 
 
-app.run(host='0.0.0.0', debug=True)
+application.run(host='0.0.0.0', debug=True)
