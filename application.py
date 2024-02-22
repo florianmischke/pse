@@ -38,5 +38,6 @@ def home(name='Periodic table of elements'):
 
     return render_template('index.html', name=name, elements=elements)
 
-
-application.run(host='0.0.0.0', debug=True)
+if __name__ == "__main__":
+    application.debug = False
+    application.run()
