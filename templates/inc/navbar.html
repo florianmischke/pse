@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg mt-4 navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Periodic table of elements</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        </ul>
+        <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-wrench"></i> Settings
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="dropdown-item" href="#">
+            <!-- Switch -->
+            <div id="themeSwitch" class="switch">
+                <label>
+                <input type="checkbox">
+                <span class="lever"></span>
+                    Light theme
+                </label>
+            </div>
+            </div>
+            <div class="dropdown-item" href="#">
+            <!-- Switch -->
+            <div id="minimalisticSwitch" class="switch">
+                <label>
+                <input type="checkbox">
+                <span class="lever"></span>
+                    Minimalistic display of elements
+                </label>
+            </div>
+            </div>
+        </div>
+        </div>
+        <form action="">
+        <select id="language" name="language" class="selectpicker mx-2" data-width="fit">
+            <option data-content='<span class="flag-icon flag-icon-gb"></span> English (UK)' value="en_gb" data="en_gb">English (UK)</option>
+            <option data-content='<span class="flag-icon flag-icon-us"></span> English (US)' value="en_us" data="en_us">English (US)</option>
+            <!-- <option data-content='<span class="flag-icon flag-icon-mx"></span> Español' value="es_es" data="es_es">Español</option> -->
+            <option data-content='<span class="flag-icon flag-icon-de"></span> Deutsch' value="de_de" data="de_de">Deutsch</option>
+        </select>
+        </form>
+        <form id="search-form" class="form search-form my-2">
+        <div class="input-group">
+            <input type="text" class="form-control search-param" id="s" name="s" placeholder="Search">
+            <div class="input-group-append">
+            <button type="submit" class="btn btn-success"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+        </form>
+    </div>
+</nav>
